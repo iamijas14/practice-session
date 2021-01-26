@@ -3,31 +3,27 @@ import "./styles.css";
 
 var heading = "Ijas";
 var color = "red";
-var likeCounter = 0; //input
 
-var emojiDb = {
-  "⚽": "Soccer Ball",
-  "⚾": "Baseball",
-  "🥎": "Softball",
-  "🏀": "Basketball",
-  "🏐": "Volleyball"
-};
+// var emojiDb = {
+//   "⚽": "Soccer Ball",
+//   "⚾": "Baseball",
+//   "🥎": "Softball",
+//   "🏀": "Basketball",
+//   "🏐": "Volleyball"
+// };
 
-var dataBase = Object.keys(emojiDb);
+var array = ["milk", "bis"];
+
+// var dataBase = Object.keys(emojiDb);
 
 export default function App() {
-  var [like, setlike] = useState();
-  var [data, setdata] = useState();
-
+  var [data, setData] = useState();
+  // var [emojis,setEmoji]=useState();
+  //processing...//
   function inputHandler(ijas) {
-    console.log(ijas.target.value);
-    var userInput = ijas.target.value;
-    setdata(userInput);
-  }
-  function clickHandler() {
-    likeCounter = likeCounter + 1; //proccessing
-    console.log("Liked", likeCounter); //output
-    setlike(likeCounter);
+    var userSearch = ijas.target.value;
+    var meaning = emojiDb[userSearch];
+    setData(meaning);
   }
 
   return (
@@ -36,9 +32,11 @@ export default function App() {
         Welcome <span style={{ color: color }}>{heading}</span>
       </h1>
       <input onChange={inputHandler}></input>
-      <button onClick={clickHandler}>Like</button> {like}
-      <div>{data}</div>
-      <div>{dataBase}</div>
+      <h3>{data}</h3>
+      <h3>Emojis</h3>
+      {array.map((sadiq) => {
+        return { sadiq };
+      })}
     </div>
   );
 }
